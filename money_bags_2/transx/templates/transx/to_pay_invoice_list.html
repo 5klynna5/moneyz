@@ -1,0 +1,22 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+	<div class = "top">
+		Invoices not yet paid by me
+	</div>
+
+	{% for invoice in to_pay %}
+    	<div class = "content">
+        	<h3>{{ invoice.submitted_by }}</h3>
+        	<p> account: {{invoice.account}}</p>
+        	<p> submitted: {{ invoice.date_submitted }}</p>
+        	<p> amount: ${{ invoice.total_amount }}</p>
+        	<p>payment sent: {{invoice.date_payment_sent}}</p>
+            <button type="button"><a href="{% url 'manage_invoice_received' pk=invoice.pk %}">edit/submit payment info</a></button> 
+    	</div>
+	{% endfor %}
+
+    
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+
+
+	<div class = "top">
+		Invoice Payments Received 
+
+	</div>
+    	
+        <ul>
+    {% for invoice in latest %}
+        <li>{{ invoice.account }}: {{ invoice.time_period }}</li>
+    {% endfor %}
+        </ul>
+    </div>
+
+
+    
+
+{% endblock %}

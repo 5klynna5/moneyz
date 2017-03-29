@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="{% static 'css/transx.css' %}">
+
+ 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>
+
+
+<title>Money Bags Accounting Software</title>
+
+</head>
+
+<body>
+
+
+<button type="button"><a href="{% url 'home_page' %}"><span>home</span></a></button>
+<button type="button"><a href="{% url 'login' %}"><span>log in</span></a></button>
+<button type="button"><a href="{% url 'logout' %}"><span>log out</span></a></button>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+
+<div class = "footer">
+	{% if user.is_authenticated %}
+
+	<p>Kirsten L. Anderson, L.L.C. 2016 - logged in</p>
+
+	{% else %}
+
+	<p>Kirsten L. Anderson, L.L.C. 2016 - not logged in</p>
+
+	{% endif %}
+	
+</div>
+
+

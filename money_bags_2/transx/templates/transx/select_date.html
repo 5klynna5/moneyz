@@ -1,0 +1,41 @@
+{% extends 'transx/base.html' %}
+
+
+{% block content %}
+
+<body>
+ 
+
+ 
+ 
+</body>
+
+
+	<div class = "top">
+		Select a Month
+    </div>
+
+    <div>
+        <form action="" method="POST"> {% csrf_token %}
+            <input name = "start_date" type="text" id="datepicker" class = "mycalendar">
+            <input name = "end_date" type="text" id="datepicker" class = "mycalendar">
+            Start Date:{{ form.start_date }}&nbsp;&nbsp; End Date:{{ form.end_date }}<br/>
+        <input  type = "submit" name = "submit" value = "Submit">
+        </form>
+
+        <p> {{request}}</p>
+
+    <!--</div>
+
+            <form action="/datepickerview/" method="post">{% csrf_token %}
+            <!-{{ form.date }}
+            <p>Date: <input name='date' type="text" id="id_date"></p>
+            <! The rest of my form 
+            <input type="submit" value="login" />
+        </form>
+    
+
+##Django form language and java datepicker language are repetitive, we need to pick one of the two above ways of doing things
+
+-->
+{% endblock %}

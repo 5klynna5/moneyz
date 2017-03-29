@@ -1,0 +1,20 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+	<div class = "top">
+		Edit invoice
+	</div>
+
+    <body>
+        <div class = "content">
+            <form method="POST" class="invoice-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        </div>
+
+    </body>
+
+
+{% endblock %}

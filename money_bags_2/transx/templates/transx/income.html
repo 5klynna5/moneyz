@@ -1,0 +1,19 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+
+	<div class = "top">
+		Income and Expenses This Month
+    </div>
+
+    <h3>Gross Income: {{ total_income_month.total_amount__sum }}</h3>
+        
+
+    <h3>Invoices paid out: {{ total_invoices_paid_month.total_amount__sum}}</h3>
+
+
+    <h3>Other expenses: {{total_payments_month.amount__sum}} </h3>
+
+
+{% endblock %}

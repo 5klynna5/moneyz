@@ -1,0 +1,38 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+	<div class = "top">
+		Income and Expenses This Month
+
+	</div>
+
+    <h3>Gross Income: {{ total_income_month.total_amount__sum }}</h3>
+    	
+    {% for invoice in income_month %}
+        <div class = "content">
+            <p> {{invoice.account}} - ${{ invoice.total_amount }}</p>
+        </div>
+    {% endfor %}
+    	</div>
+    
+
+    <h3>Invoices paid out: {{ total_invoices_paid_month.total_amount__sum}}</h3>
+
+    {% for invoice in invoices_paid_out_month %}
+        <div class = "content">
+            <p> {{invoice.account}} - ${{ invoice.total_amount }}</p>
+        </div>
+    {% endfor %}
+        </div>
+
+    <h3>Other expenses: {{total_payments_month.amount__sum}} </h3>
+
+    {% for payment in payments_month %}
+        <div class = "content">
+            <p> {{payment.account}} - ${{ payment.amount }}</p>
+        </div>
+    {% endfor %}
+        </div>
+
+{% endblock %}

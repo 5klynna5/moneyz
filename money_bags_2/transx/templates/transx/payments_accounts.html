@@ -1,0 +1,15 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+	<div class = "top">Accounts and payments made</div>
+
+
+	{% for item in payment_accounts %}
+    	<div class = "content">
+        	<h3>{{ item.account }}</h3>
+    	</div>
+	{% endfor %}
+
+
+{% endblock %}

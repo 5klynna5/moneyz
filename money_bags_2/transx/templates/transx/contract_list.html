@@ -1,0 +1,43 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+<div class = "top">Current Contracts</div>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+<div class = "content">
+	<table class="table-fill">
+	<thead>
+		<tr>
+			<th class="text-left">Client</th>
+			<th class="text-left">Contract</th>
+			<th class="text-left">Amount spent external</th>
+			<th class="text-left">External budget</th>
+			<th class="text-left">Amount invoiced total</th>
+			<th class="text-left">Total budget</th>
+		</tr>
+	</thead>
+
+	<tbody class="table-hover">
+	{% for account in contracts %}
+		<tr>
+			<td class="text-left">{{ account.client }}</td>
+			<td class="text-left">{{ account.account_title }}</td>
+			<td class="text-left"> {{account.payment}} </td>
+			<td class="text-left">{{account.budget_external}}</td>
+			<td class="text-left">{{account.invoiced}}</td>
+			<td class="text-left">{{account.total_budget}}</td>
+		</tr> 
+	{% endfor %}
+	</tbody>
+	</table>
+</div>
+
+
+{% endblock %}

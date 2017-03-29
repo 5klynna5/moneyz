@@ -1,0 +1,40 @@
+{% extends 'transx/base.html' %}
+
+{% block content %}
+
+<div class = "top">Unpaid Invoices owed to me</div>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+</head>
+
+<div class = "content">
+	<table class="table-fill">
+	<thead>
+		<tr>
+			<th class="text-left">Account</th>
+			<th class="text-left">Date Submitted</th>
+			<th class="text-left">Total Amount</th>
+			<th class="text-left">Edit Payment Info</th>
+		</tr>
+	</thead>
+
+	<tbody class="table-hover">
+	{% for invoice in unpaid %}
+		<tr>
+			<td class="text-left">{{ invoice.account }}</td>
+			<td class="text-left">{{ invoice.date_submitted }}</td>
+			<td class="text-left">{{ invoice.total_amount }}</td>
+			<td class="text-left"><button type = "button"><a href="{% url 'manage_invoice' pk=invoice.pk %}">edit</a></button></p></td>
+		</tr> 
+	{% endfor %}
+	</tbody>
+	</table>
+</div>
+  
+
+{% endblock %}
+
