@@ -78,10 +78,14 @@ def select_date(request):
     if request.method == "POST":
         f = DateRangeForm(request.POST)
         my_data = request.POST
-        ###TODO we need to figure out this next - how to get the start date and end date into this view from the jquery ui 
-        ######django select widget already works (has been commented out in lines 39 on in forms.py)
-        start_date_from_user = my_data['start_date_year'] + '-' + my_data['start_date_month'] + '-' + my_data['start_date_day']
-        end_date_from_user = my_data['end_date_year'] + '-' + my_data['end_date_month'] + '-' + my_data['end_date_day']
+        start_date_year = my_data['start_date'].split('/')[-1]
+        start_date_month = my_data['start_date'].split('/')[0]
+        start_date_day = my_data['start_date'].split('/')[1]
+        end_date_year = my_data['end_date'].split('/')[-1]
+        end_date_month = my_data['end_date'].split('/')[0]
+        end_date_day = my_data['end_date'].split('/')[1]
+        start_date_from_user = start_date_year + '-' + start_date_month + '-' + start_date_day
+        end_date_from_user = end_date_year + '-' + end_date_month + '-' + end_date_day
         income_month = Invoice.objects.filter(date_payment_received__range=[start_date_from_user, end_date_from_user])
         total_income_month = income_month.aggregate(Sum('total_amount'))
         invoices_paid_out_month = Invoice_received.objects.filter(date_payment_cashed__range=[start_date_from_user, end_date_from_user])
